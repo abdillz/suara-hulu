@@ -1,0 +1,62 @@
+/* SUARA HULU: gaya dasbor pemda */
+body.dasbor { background: var(--lumut); }
+.d-kepala {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 18px 28px; background: var(--kertas); border-bottom: 1px solid var(--garis);
+}
+.d-kepala .merek { margin: 0; }
+.d-kepala .merek-nama { font-size: 1.25rem; }
+.d-filter { display: flex; align-items: center; gap: 8px; font-size: .88rem; font-weight: 600; }
+.d-filter select { font: inherit; padding: 7px 10px; border-radius: 10px; border: 1.5px solid var(--garis); background: var(--kertas); }
+.d-isi { max-width: 1240px; margin: 0 auto; padding: 20px 28px 48px; }
+.d-isi .catatan-data { margin-bottom: 18px; }
+
+.d-ringkas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--garis); border: 1px solid var(--garis); border-radius: var(--r-besar); overflow: hidden; margin-bottom: 14px; }
+.d-ringkas > div { background: var(--kertas); padding: 16px 18px; display: flex; flex-direction: column; }
+.d-angka { font-size: 1.9rem; font-weight: 800; letter-spacing: -.03em; font-variant-numeric: tabular-nums; color: var(--hutan); }
+.d-ringkas span:last-child { font-size: .82rem; color: var(--abu); }
+.merah-teks { color: var(--merah); }
+
+.d-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 14px; align-items: start; }
+.kol-das { min-width: 190px; }
+.peta-nas { width: 100%; height: auto; display: block; background: var(--peta-dasar); border-radius: var(--r-kecil); }
+.peta-pulau { font-size: 13px; font-weight: 700; fill: var(--kontur); }
+.peta-das { font-size: 10.5px; font-weight: 700; fill: var(--tinta); paint-order: stroke; stroke: var(--peta-dasar); stroke-width: 3px; }
+.titik-das { cursor: pointer; }
+.titik-das:focus { outline: none; }
+.titik-das:focus circle, .titik-das:hover circle { stroke: var(--tinta); }
+.legenda { display: flex; gap: 14px; font-size: .78rem; color: var(--abu); margin-top: 8px; }
+.legenda i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+
+.tabel-gulir { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+th { text-align: left; font-size: .76rem; color: var(--abu); font-weight: 600; padding: 8px 10px; border-bottom: 1.5px solid var(--garis); white-space: nowrap; }
+td { padding: 10px; border-bottom: 1px solid var(--garis); vertical-align: top; }
+#tabel-das tbody tr { cursor: pointer; }
+#tabel-das tbody tr:hover, #tabel-das tbody tr:focus { background: var(--peta-dasar); outline: none; }
+.pil { display: inline-block; padding: 3px 10px; border-radius: 99px; font-weight: 700; font-size: .78rem; color: #fff; white-space: nowrap; }
+.pil-hijau { background: var(--hijau); }
+.pil-kuning { background: var(--kuning); }
+.pil-merah { background: var(--merah); }
+
+.d-judul-baris { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.d-tab-status { display: flex; gap: 4px; flex-wrap: wrap; }
+.d-tab-status button { border: 1.5px solid var(--garis); background: var(--kertas); border-radius: 99px; padding: 5px 12px; font-size: .8rem; font-weight: 600; cursor: pointer; }
+.d-tab-status button[aria-selected="true"] { background: var(--hutan); border-color: var(--hutan); color: #fff; }
+.foto-mini { width: 64px; height: 48px; object-fit: cover; border-radius: 8px; display: block; }
+.foto-kosong { display: grid; place-items: center; width: 64px; height: 48px; border-radius: 8px; background: var(--peta-dasar); font-size: .66rem; color: var(--abu); text-align: center; }
+.kecil-t { padding: 7px 12px; font-size: .78rem; white-space: nowrap; }
+
+.d-panel { position: fixed; inset: 0; z-index: 50; }
+.d-panel-latar { position: absolute; inset: 0; background: rgba(23,36,30,.4); }
+.d-panel-isi { position: absolute; right: 0; top: 0; bottom: 0; width: min(420px, 100%); background: var(--kertas); padding: 26px 22px; overflow-y: auto; animation: geser .25s ease-out; }
+@keyframes geser { from { transform: translateX(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.rekom { padding-left: 1.1rem; font-size: .88rem; }
+.rekom li { margin-bottom: 6px; }
+
+@media (max-width: 900px) {
+  .d-grid { grid-template-columns: 1fr; }
+  .d-ringkas { grid-template-columns: repeat(2, 1fr); }
+  .d-isi, .d-kepala { padding-left: 16px; padding-right: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .d-panel-isi { animation: none; } }

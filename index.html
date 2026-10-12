@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>SUARA HULU</title>
+  <meta name="description" content="Purwarupa SUARA HULU: aplikasi pemantau kesehatan daerah aliran sungai berbasis satelit dan partisipasi warga." />
+  <meta name="theme-color" content="#1E4636" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/ikon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/gaya.css" />
+</head>
+<body>
+  <div class="panggung">
+    <aside class="panduan" aria-label="Panduan demo">
+      <div class="merek">
+        <img src="assets/ikon.svg" alt="" width="44" height="44" />
+        <div>
+          <p class="merek-nama">SUARA HULU</p>
+          <p class="merek-tagline">Dengarkan hulu sungaimu sebelum banjir datang.</p>
+        </div>
+      </div>
+      <p>Purwarupa aplikasi warga untuk esai ScreenShot Competition 2026. Aplikasi ini menerjemahkan kerusakan hutan di hulu daerah aliran sungai (DAS) yang terekam satelit menjadi kabar yang dipahami warga di hilir.</p>
+      <h2>Cara mencoba</h2>
+      <ol class="langkah">
+        <li><strong>Sungaiku.</strong> Pilih DAS, lihat peta hulu, Indeks Kesehatan DAS, dan tekan Dengarkan.</li>
+        <li><strong>Hulu Berbicara.</strong> Tekan Simulasikan deteksi satelit baru, lalu nyalakan hujan sangat lebat. Perhatikan status naik.</li>
+        <li><strong>Lapor Hulu.</strong> Kirim foto temuan. Coba juga mode tanpa sinyal, lalu matikan untuk melihat laporan terkirim otomatis.</li>
+        <li><strong>Suarakan.</strong> Unduh kartu visual dan buat laporan resmi untuk pemerintah daerah.</li>
+        <li><strong>Dasbor pemda.</strong> Buka di tab baru, tindak lanjuti laporanmu, lalu lihat statusnya berubah di aplikasi warga.</li>
+      </ol>
+      <div class="panduan-aksi">
+        <a class="tombol utama" href="dasbor.html" target="_blank" rel="noopener">Buka dasbor pemda</a>
+        <button class="tombol sekunder" id="reset-demo">Ulangi demo dari awal</button>
+      </div>
+      <p class="catatan-data">Semua angka di purwarupa ini adalah data simulasi. Nama DAS dipakai sebagai contoh. Versi produksi mengambil data dari Global Forest Watch, BMKG, InaRISK, dan Kemenhut.</p>
+    </aside>
+
+    <div class="ponsel">
+      <div class="layar">
+        <header class="bilah-atas">
+          <button class="pilih-das" id="ganti-das" aria-label="Ganti DAS">
+            <span class="nama" id="nama-das">DAS</span>
+            <span class="lokasi" id="lokasi-das"></span>
+          </button>
+          <span class="sinyal" id="indikator-sinyal" hidden>Tanpa sinyal</span>
+        </header>
+        <main id="view" class="isi" tabindex="-1"></main>
+        <nav class="tabs" aria-label="Menu utama">
+          <button data-tab="sungaiku" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c3-2 5 2 9 0s6-2 9 0M3 13c3-2 5 2 9 0s6-2 9 0M12 3l4 6H8z"/></svg>
+            Sungaiku
+          </button>
+          <button data-tab="hulu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg>
+            Hulu Berbicara
+            <span class="badge" id="badge-notif" hidden>0</span>
+          </button>
+          <button data-tab="lapor">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4zM12 11a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+            Lapor
+          </button>
+          <button data-tab="suarakan">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l6 5V5L8 10zM17 9a4 4 0 0 1 0 6"/></svg>
+            Suarakan
+          </button>
+        </nav>
+        <div id="toast" class="toast-wadah" aria-live="polite"></div>
+        <div id="sheet" class="sheet"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/peta.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

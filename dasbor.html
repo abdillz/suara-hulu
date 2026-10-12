@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dasbor SUARA HULU</title>
+  <meta name="description" content="Dasbor pemerintah daerah dan BPBD untuk memantau kesehatan DAS dan menindaklanjuti laporan warga." />
+  <link rel="icon" href="assets/ikon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/gaya.css" />
+  <link rel="stylesheet" href="css/dasbor.css" />
+</head>
+<body class="dasbor">
+  <header class="d-kepala">
+    <div class="merek">
+      <img src="assets/ikon.svg" alt="" width="36" height="36" />
+      <div>
+        <p class="merek-nama">SUARA HULU</p>
+        <p class="merek-tagline">Dasbor pemerintah daerah dan BPBD</p>
+      </div>
+    </div>
+    <label class="d-filter">Provinsi
+      <select id="filter-provinsi"><option value="">Semua provinsi</option></select>
+    </label>
+  </header>
+
+  <main class="d-isi">
+    <p class="catatan-data">Data simulasi untuk purwarupa. Laporan yang dikirim dari aplikasi warga di tab lain muncul di sini secara otomatis.</p>
+
+    <section class="d-ringkas" aria-label="Ringkasan" id="ringkas"></section>
+
+    <div class="d-grid">
+      <section class="kartu d-peta">
+        <h2>Peta status DAS</h2>
+        <div id="peta-nasional"></div>
+      </section>
+      <section class="kartu d-peringkat">
+        <h2>DAS dengan indeks terendah</h2>
+        <p class="kecil">Prioritas patroli dan rehabilitasi. Pilih baris untuk melihat rincian.</p>
+        <div class="tabel-gulir"><table id="tabel-das"></table></div>
+      </section>
+    </div>
+
+    <section class="kartu">
+      <div class="d-judul-baris">
+        <h2>Laporan warga</h2>
+        <div class="d-tab-status" role="tablist" id="tab-status"></div>
+      </div>
+      <div class="tabel-gulir"><table id="tabel-laporan" class="tabel-laporan"></table></div>
+    </section>
+  </main>
+
+  <div id="d-panel" class="d-panel" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/dasbor.js"></script>
+</body>
+</html>
